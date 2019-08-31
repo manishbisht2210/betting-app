@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Place your Bet</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div id="mainContent" name="mainContent" class="main-content"> 
+        <nav>
+            <div class="nav-wrapper">
+                <a class="brand-logo center">Place Your Bet</a>
+            </div>
+        </nav>
+        <div class="container">
+            <ul id="mytabs" class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+                    <li><a nav-link href="#identify">Identify Yourself</a></li>
+                    <li><a nav-link href="#otp">OTP</a></li>
+                    <li><a nav-link href="#bet">Place Bet</a></li>
+                    <li><a nav-link href="#payment">Payment</a></li>
+                    <li><a nav-link href="#receipt">Receipt</a></li>
+            </ul>
+
+            <div class="tab-content">
+                    <div id="home" class="tab-pane fade in active">
+                        <div class="child-content">
+                            <div id="slideshow-container" class="slideshow-container">
+
+                                <div class="mySlides fade">
+                                  <div class="numbertext">1 / 5</div>
+                                  <img src="./images/1.jpg" style="width:100%">
+                                  <div class="text">Caption Text</div>
+                                </div>
+                                
+                                <div class="mySlides fade">
+                                  <div class="numbertext">2 / 5</div>
+                                  <img src="./images/2.jpg" style="width:100%">
+                                  <div class="text">Caption Two</div>
+                                </div>
+                                
+                                <div class="mySlides fade">
+                                  <div class="numbertext">3 / 5</div>
+                                  <img src="./images/3.jpeg" style="width:100%">
+                                  <div class="text">Caption Three</div>
+                                </div>
+                                
+                                
+                                <div class="mySlides fade">
+                                    <div class="numbertext">4 / 5</div>
+                                    <img src="./images/4.jpg" style="width:100%">
+                                    <div class="text">Caption Three</div>
+                                  </div>
+                                
+                                  
+                                <div class="mySlides fade">
+                                    <div class="numbertext">5 / 5</div>
+                                    <img src="./images/5.jpg" style="width:100%">
+                                    <div class="text">Caption Three</div>
+                                  </div>
+                                
+                                </div>
+                                <br>
+                                
+                                <div style="text-align:center">
+                                  <span class="dot"></span> 
+                                  <span class="dot"></span> 
+                                  <span class="dot"></span> 
+                                  <span class="dot"></span> 
+                                  <span class="dot"></span> 
+                                </div>                                 
+                        </div>
+                        <div class="navigation">
+                            <btn id="barcode_proceed" class="btn waves-effect waves-light" onclick="barcode_proceed()">Get Started</btn>
+                        </div>
+                    </div>
+                    <div id="identify" class="tab-pane fade">
+                            <div id="identify-child" class="child-content">
+                                    <p>Scan the QR Code on your app here</p>
+                            </div>
+                            <div class="navigation">
+                                <btn id="proceed_otp" class="btn waves-effect waves-light" onclick="proceed_identify()">Proceed</btn>
+                            </div>
+                    </div>
+                    <div id="otp" class="tab-pane fade">
+                            <div class="child-content">
+                                    <p>Enter the OTP sent to your registered mobile number</p>
+                                    <div>
+                                            <input type="text" id="otp_value">
+                                    </div>
+                            </div>
+                            <div class="navigation">
+                                <btn id="resend_otp" disabled class="btn waves-effect waves-light" onclick="resend_otp()">Resend OTP</btn>
+                                <btn id="proceed_otp" class="btn waves-effect waves-light" onclick="proceed_otp()">Proceed</btn>
+                            </div>
+                    </div>
+                    <div id="bet" class="tab-pane fade">
+                            <div class="child-content">
+                                    <div class="container">
+                                    <form>
+                                            <div> 
+                                                <label>Select Bet Type</label>
+                                                <select class="browser-default" name = "bet_type" id="bet_type" autofocus>
+                                                        <option value="" disabled selected>Choose your option</option>
+                                                        <option value = "win">Win</option>
+                                                        <option value = "place">place</option>
+                                                        <option value = "accu_win">Accumulator Win</option>
+                                                        <option value = "accu_place">Accumulator Place</option>
+                                                        <option value = "kenchi">Kenchi</option>
+                                                        <option value = "forecast_pool">Forecast Pool</option>
+                                                        <option value = "quinella_pool">Quinella Pool</option>
+                                                        <option value = "second_horse_pool">Second Horse Pool</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label>Select Horse</label>
+                                                <select class="browser-default" name = "playerId" id="playerId">
+                                                        <option value="" disabled selected>Choose your option</option>
+                                                        <option value = "1">1</option>
+                                                        <option value = "2">2</option>
+                                                        <option value = "3">3</option>
+                                                        <option value = "4">4</option>
+                                                        <option value = "5">5</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label>Enter Bet Amount</label>
+                                                <input type="text" id="amount">
+                                            </div>
+                                            <button type="submit" class="btn waves-effect waves-light">Add Bet</button>
+                                    </form>
+                                    </div>
+                                    <div>
+                                        <table id="bets_list">
+                                            <th>Bet Type</th>
+                                            <th>Horse/Player</th>
+                                            <th>Amount</th>
+                                        </table>
+                                    </div>
+                                    <div class="navigation">
+                                            <btn id="proceed_to_payment" class="btn waves-effect waves-light" onclick="proceed_to_payment()">Proceed</btn>
+                                    </div>
+                            </div>
+                    </div>
+                    <div id="payment" class="tab-pane fade">
+                        <h3>Kindly complete your payment using below options to complete your bet</h3>
+                        <div class="navigation">
+                                <btn id="payment_complete" class="btn waves-effect waves-light" onclick="payment_complete()">Pay via Paypal</btn>
+                        </div>
+                    </div>
+                    <div id="receipt" class="tab-pane fade">
+                        <table id="final_bets_list">
+                            <th>Bet Type</th>
+                            <th>Horse/Player</th>
+                            <th>Amount</th>
+                        </table>
+                        <div class="navigation">
+                            <btn id="print_receipt" class="btn waves-effect waves-light" onclick="print_receipt()">Print</btn>
+                        </div>
+                    </div>
+                    <div id="errorBanner"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const electron = require('electron');
+        const path = require('path');
+        const app = require('electron').remote.app
+        var remote = require('electron').remote;
+        const {ipcRenderer} = electron;
+        var Request = require("request");
+        var querystring = require('querystring');
+        var bets=[];
+
+        const otp_service_url = 'http://localhost:8090/v1/one-time-password/sendOtp';
+        const validate_otp_url = 'http://localhost:8090/v1/one-time-password/validateOtp';
+        const validate_jwt_url = 'http://localhost:8080/oauth/token';
+        const place_bet_service_url = 'https://betting-service.herokuapp.com/v1/bet/place';
+
+        var mobileNumber;
+
+        var jwt_token;
+        var totalAmount;
+
+        const table = document.getElementById('bets_list');
+        const receipt_table = document.getElementById('final_bets_list');
+
+
+        var final_type = document.querySelector('#bet_type').value;
+        var final_horse = document.querySelector('#playerId').value;
+        var final_betAmount = document.querySelector('#amount').value;
+
+        //Add Bet
+        ipcRenderer.on('bet:add', function(e, item){
+            
+            bets.push(JSON.parse(item));
+            const jsonString = JSON.stringify(item);
+            const cols=[];
+            cols.push(JSON.parse(item)['playerType']);
+            cols.push(JSON.parse(item)['playerId']);
+            cols.push(JSON.parse(item)['amount']);
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < 3; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = cols[j];
+            }
+
+            tr = receipt_table.insertRow(-1);
+
+            for (var j = 0; j < 3; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = cols[j];
+            }
+    
+
+            // var divContainer = document.getElementById("bet_list");
+            // divContainer.innerHTML = "";
+            // divContainer.appendChild(table);
+        });
+
+        //Show React Module
+        ipcRenderer.on('show:scanner', function(e, reactURL){
+            console.log("back to html");
+            const webview = document.createElement('webview');
+            webview.src = reactURL;
+            webview.className = "identify-child-content";
+            webview.addEventListener('ipc-message', (event) => {
+                console.log(event.channel)
+                // Prints "pong"
+            })
+            // webview.addEventListener('catch:scanned', (event) => {
+            //     console.log(event.channel)
+            //     // Prints "pong"
+            // });
+            const identifyChild = document.getElementById("identify-child");
+            identifyChild.appendChild(webview);
+        }); 
+        
+        //Show React Module
+        ipcRenderer.on('payment:complete', function(e){
+            console.log("back to html");
+
+
+            bets.forEach(function(value){
+                totalAmount = value['amount'];
+            });
+
+            console.log(bets);
+
+            Request.post({
+                "headers": { "content-type": "application/json" },
+                "url": place_bet_service_url,
+                "body": JSON.stringify({
+                    "userId" : "9769399720",
+                    "transaction" : {
+                        "transactionStatus" : "PENDING",
+                        "transactionMode" : "PAYPAL",
+                        "buyerId" : "samplePayerId",
+                        "paymentId" : "samplePaymentId"
+                    },
+                    "totalAmount" : parseFloat(totalAmount),
+                    "unitValue" : "INR",
+                    "bettingItems" : bets
+                })
+            }, (error, response, body) => {
+                if(error) {
+                    return console.dir(error);
+                    handleError("There was some error while placing bet");
+                }
+               // console.dir(JSON.parse(body));
+                handleError("");
+                $('#mytabs a[href="#receipt"]').tab('show');
+            });
+        }); 
+
+        //Show React Module
+        ipcRenderer.on('catch:scanned', function(e, scannedValue){
+            console.log("Calling OTP Service with the scanned Value", scannedValue);
+            mobileNumber = scannedValue;
+            //Calling Get OTP
+            // Request.post({
+            //     "headers": { "content-type": "application/json" },
+            //     "url": otp_service_url,
+            //     "body": JSON.stringify({
+            //         "mobileNumber": scannedValue
+            //     })
+            // }, (error, response, body) => {
+            //     if(error) {
+            //         return console.dir(error);
+            //         handleError("Getting of OTP failed");
+            //     }
+            //    // console.dir(JSON.parse(body));
+            //     handleError("");
+            //     $('#mytabs a[href="#otp"]').tab('show');
+            // });
+
+            $('#mytabs a[href="#otp"]').tab('show');
+        }); 
+
+        //Handle Submit OTP
+        function proceed_otp(e)
+        {
+            //Extracting value
+            const otp_value = document.querySelector('#otp_value').value;
+
+           // Calling Verify OTP
+            // Request.post({
+            //     "headers": { "content-type": "application/json" },
+            //     "url": validate_jwt_url,
+            //     "body": JSON.stringify({
+            //         "mobileNumber": mobileNumber,
+            //         "otp": otp_value
+            //     })
+            // }, (error, response, body) => {
+            //     if(error) {
+            //         return console.dir(error);
+            //         handleError("Verification of OTP failed");
+            //     }
+            //    // console.dir(JSON.parse(body));
+            //     handleError("");
+            //     $('#mytabs a[href="#bet"]').tab('show');
+            // });
+
+            // var form = {
+            //     username: mobileNumber,
+            //     password: 'admin',
+            //     grant_type: 'password'
+            // };
+
+            // var formData = querystring.stringify(form);
+
+            // // Generate JWT
+            // Request.post({
+            //     "headers": { "content-type": "application/x-www-form-urlencoded", "Authorization": "Basic YmV0dGluZy1jbGllbnQ6YmV0dGluZy1zZWNyZXQ=" },
+            //     "url": validate_otp_url,
+            //     "body": formData
+            // }, (error, response, body) => {
+            //     if(error) {
+            //         return console.dir(error);
+            //         handleError("Verification of OTP failed");
+            //     }
+            //    // console.dir(JSON.parse(body));
+            //     jwt_token = JSON.parse(body)['access_token'];
+            //     handleError("");
+            //     $('#mytabs a[href="#bet"]').tab('show');
+            // });
+
+           $('#mytabs a[href="#bet"]').tab('show');
+        }
+
+
+        //Handle Proceed on Bar Code
+        function barcode_proceed(e)
+        {
+            ipcRenderer.send('show:scanner');
+            $('#mytabs a[href="#identify"]').tab('show');
+        }
+
+        //Handle Proceed Identify
+        function proceed_identify(e)
+        {
+            $('#mytabs a[href="#otp"]').tab('show');
+        }
+
+        //Handle Proceed to Payment
+        function proceed_to_payment(e)
+        {
+            $('#mytabs a[href="#payment"]').tab('show');
+        }
+
+        //Handle Payment Complete
+        function payment_complete(e)
+        { 
+            var payment_url = 'https://paypal-integration-service.herokuapp.com/v1/payment/gateway/paypal/make/payment?sum=10';
+            // Request.get(payment_url, (error, response, body) => {
+            //     if(error) {
+            //         return console.dir(error);
+            //         handleError("There was some issue with the connection! Please try again after sometime");
+            //     }
+            //     console.log(body);
+            //     console.log(JSON.stringify(body));
+            //     handleError("");
+            // });
+
+            Request.post({
+                "headers": { "content-type": "application/json" },
+                "url": payment_url,
+               }, (error, response, body) => {
+                if(error) {
+                    return console.dir(error);
+                    handleError("Payment Call failed");
+                }
+                console.log(body);
+                console.log(JSON.stringify(body));
+                console.log(JSON.parse(body)['redirect_url']);
+                ipcRenderer.send("open:payment", JSON.parse(body)['redirect_url']);
+                var request = require("request");
+
+                // Request(JSON.parse(body)['redirect_url'], function(error, response, body) {
+                //      console.log(body);
+                // });
+                handleError("");
+              //  $('#mytabs a[href="#bet"]').tab('show');
+            });
+
+
+           // $('#mytabs a[href="#receipt"]').tab('show');
+        }
+
+        function handleError(msg)
+        {
+            document.getElementById("errorBanner").innerHTML = "<p style='color:red'>"+msg+"</p>";
+        }
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', submitForm);
+
+        // $("#scannedValue").change(function(){
+        //      alert("The text has been changed.");
+        // });
+
+        function submitForm(e){
+            e.preventDefault();
+            const type = document.querySelector('#bet_type').value;
+            const horse = document.querySelector('#playerId').value;
+            const amount = document.querySelector('#amount').value;
+
+            final_type = type;
+            final_horse = horse;
+            final_betAmount = amount;
+           ipcRenderer.send('bet:add', {
+               'playerType': type, 'playerId': horse, 'amount': parseFloat(amount)
+            });
+        }
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script>
+            var slideIndex = 0;
+            showSlides();
+            
+            function showSlides() {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("dot");
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+              }
+              slideIndex++;
+              if (slideIndex > slides.length) {slideIndex = 1}    
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" dot-active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " dot-active";
+              setTimeout(showSlides, 3000); // Change image every 3 seconds
+            }
+    </script>            
+</body>
+</html>

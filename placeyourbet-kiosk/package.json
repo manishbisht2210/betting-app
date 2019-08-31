@@ -1,0 +1,60 @@
+{
+  "name": "getyourbet",
+  "version": "0.1.0",
+  "main": "src/public/main.js",
+  "homepage": "./",
+  "private": true,
+  "author": "Kartik",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "electron-is-dev": "^1.0.1",
+    "electron-prebuilt": "^1.4.13",
+    "electron-safe-ipc": "^0.6.1",
+    "electron-tabs": "^0.9.5",
+    "jquery": "^3.3.1",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-qr-reader": "^2.2.1",
+    "react-scripts": "2.1.8",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "electron": "^4.0.8",
+    "electron-builder": "^20.38.5",
+    "electron-packager": "^13.1.0",
+    "wait-on": "^3.2.0"
+  },
+  "scripts": {
+    "electron-start": "electron .",
+    "start": "react-scripts start",
+    "electron-dev": "concurrently \"react-scripts start | cat \" \"wait-on http://localhost:3000 && electron .",
+    "preelectron-pack": "npm build",
+    "electron-pack": "build build/electron.js",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . get-your-bet --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Get Your Bet Kiosk App\"",
+    "package-linux": "electron-packager . get-your-bet --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/icon.png --prune=true --out=release-builds",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "build": {
+    "appId": "com.mook",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
