@@ -11,7 +11,7 @@
     "electron-prebuilt": "^1.4.13",
     "electron-safe-ipc": "^0.6.1",
     "electron-tabs": "^0.9.5",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-qr-reader": "^2.2.1",
